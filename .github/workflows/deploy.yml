@@ -1,9 +1,9 @@
-name: Deploy Mealzaar
+name: Deploy Mealzaar Site to VPS
 
 on:
   push:
     branches:
-      - main  # change if your branch is master
+      - main
 
 jobs:
   deploy:
@@ -11,28 +11,36 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
-    - name: Set up SSH
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        VPS_HOST: ${{ secrets.VPS_HOST }}
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-        chmod 600 ~/.ssh/id_ed25519
-        ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
+    - name: Deploy files to a temp directory on VPS
+      uses: appleboy/scp-action@v0.1.5
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        source: "*.html,*.css,*.js,*.ico,images/"
+        target: "/home/mzkhan/projects/mealzaar/website"
+        overwrite: true
 
-    - name: Deploy files to server
-      env:
-        VPS_HOST: ${{ secrets.VPS_HOST }}
-        VPS_USER: ${{ secrets.VPS_USER }}
-      run: |
-        scp -i ~/.ssh/id_ed25519 -r ./ "$VPS_USER"@"$VPS_HOST":/var/www/mealzaar/
-
-    - name: Restart Nginx (optional)
-      env:
-        VPS_HOST: ${{ secrets.VPS_HOST }}
-        VPS_USER: ${{ secrets.VPS_USER }}
-      run: |
-        ssh -i ~/.ssh/id_ed25519 "$VPS_USER"@"$VPS_HOST" 'sudo systemctl restart nginx'
+    - name: Check if update is needed and deploy
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        script: |
+          echo "Checking for file differences..."
+          changes=$(rsync -avnc --delete --exclude=".git" /home/mzkhan/projects/mealzaar/website/ /var/www/mealzaar/ | grep -v '/$')
+          
+          if [ -z "$changes" ]; then
+            echo "✅ No changes detected. Skipping deployment."
+          else
+            echo "🟡 Changes detected:"
+            echo "$changes"
+            echo "🔁 Syncing files..."
+            rsync -av --delete --exclude=".git" /home/mzkhan/projects/mealzaar/website/ /var/www/mealzaar/
+            echo "🔄 Reloading Nginx..."
+            sudo systemctl reload nginx
+            echo "🟢 Deployment completed."
+          fi
