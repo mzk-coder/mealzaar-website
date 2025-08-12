@@ -145,16 +145,15 @@ function initializeMenuTabs() {
       const buttonText = this.textContent.toLowerCase();
       if (buttonText.includes('breakfast')) {
         showMenu('breakfast');
-      } else if (buttonText.includes('veg lunch')) {
-        showMenu('veg-lunch');
       } else if (buttonText.includes('non-veg lunch')) {
         showMenu('nonveg-lunch');
+      } else if (buttonText.includes('veg lunch')) {
+        showMenu('veg-lunch');
       } else if (buttonText.includes('non-veg dinner')) {
         showMenu('nonveg-dinner');
       } else if (buttonText.includes('veg dinner')) {
         showMenu('veg-dinner');
       }
-
 
       // Update active tab
       tabButtons.forEach(btn => btn.classList.remove('active'));
@@ -165,6 +164,8 @@ function initializeMenuTabs() {
   // Set initial state
   showMenu('breakfast');
 }
+
+
 function showMenu(menuType) {
   // Hide all menu contents
   const menuContents = document.querySelectorAll('.menu-content');
@@ -284,37 +285,50 @@ function getFieldLabel(fieldId) {
 }
 
 function submitOrder() {
-  // Show loading state
   const submitBtn = document.querySelector('.submit-btn');
   if (!submitBtn) return;
 
   const originalText = submitBtn.textContent;
-  submitBtn.innerHTML = `
-    <span style="display: inline-flex; align-items: center; gap: 8px;">
-      <span style="width: 16px; height: 16px; border: 2px solid transparent; border-top: 2px solid currentColor; border-radius: 50%; animation: spin 1s linear infinite;"></span>
-      Submitting...
-    </span>
-  `;
+  submitBtn.innerHTML = 'Sending...';
   submitBtn.disabled = true;
 
-  // Simulate API call delay
-  setTimeout(() => {
-    // Reset form
-    if (orderForm) {
-      orderForm.reset();
-    }
-    if (priceDisplay) {
-      priceDisplay.style.display = 'none';
-    }
+  const payload = {
+    customerName: document.getElementById('customerName').value.trim(),
+    customerPhone: document.getElementById('customerPhone').value.trim(),
+    customerAddress: document.getElementById('customerAddress').value.trim(),
+    mealPlan: document.getElementById('mealPlan').value,
+    mealType: document.getElementById('mealType').value,
+    specialInstructions: document.getElementById('specialInstructions').value.trim()
+  };
 
-    // Reset button
+  // change this URL to your deployed backend when ready
+  const API_URL = 'https://api.mealzaar.com/send-order';
+
+  fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(data => {
     submitBtn.innerHTML = originalText;
     submitBtn.disabled = false;
-
-    // Show success modal
-    showModal();
-  }, 1500);
+    if (data && data.success) {
+      orderForm.reset();
+      if (priceDisplay) priceDisplay.style.display = 'none';
+      showModal();
+    } else {
+      alert('Failed to send order: ' + (data && data.detail ? data.detail : 'Unknown error'));
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+    alert('Error sending order. Check console for details.');
+  });
 }
+
 
 // Modal functionality
 function showModal() {

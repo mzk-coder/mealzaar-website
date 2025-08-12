@@ -795,19 +795,25 @@ html {
 }
 
 /* Navigation */
+/* ============================= */
+/* NAVIGATION BAR                 */
+/* ============================= */
+
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
+  height: 74px; /* fixed height for consistent vertical centering */
   background: rgba(139, 21, 56, 0.95);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  padding: var(--space-12) 0;
   transition: all var(--duration-normal) var(--ease-standard);
 }
 
+/* NAV CONTAINER */
 .nav-container {
   max-width: 1200px;
+  height: 100%; /* ensures children use full navbar height */
   margin: 0 auto;
   padding: 0 var(--space-20);
   display: flex;
@@ -815,34 +821,34 @@ html {
   align-items: center;
 }
 
-.nav-logo h1 {
-  color: var(--brand-white);
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 2px;
+/* LOGO AREA */
+.nav-logo {
+  display: flex;
+  align-items: center;
 }
 
 .nav-logo .logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
 }
 
 .nav-logo .logo {
-    height: 50px; /* Adjust size as needed */
-    width: auto;
-    margin-right: 8px;
+  height: 50px;
+  width: auto;
+  margin-right: 8px;
 }
 
 .nav-logo .logo-text {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #fff; /* Change if navbar background is light */
-    letter-spacing: 1px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  transform: translateY(2px);
 }
 
-
-
+/* NAV MENU (DESKTOP) */
 .nav-menu {
   display: flex;
   gap: var(--space-32);
@@ -862,6 +868,7 @@ html {
   background-color: rgba(255, 215, 0, 0.1);
 }
 
+/* HAMBURGER MENU (MOBILE) */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -874,6 +881,36 @@ html {
   height: 3px;
   background: var(--brand-white);
   transition: all var(--duration-normal) var(--ease-standard);
+}
+
+/* ============================= */
+/* RESPONSIVE NAVIGATION          */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: absolute;
+    top: 74px;
+    left: 0;
+    width: 100%;
+    background: rgba(139, 21, 56, 0.98);
+    flex-direction: column;
+    gap: 0;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
 }
 
 /* Hero Section */
