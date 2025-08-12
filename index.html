@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEALZAAR - Homecooked • Fresh • Delicious Tiffin Service in Pune</title>
+    <meta name="description"
+        content="MEALZAAR delivers fresh, homecooked meals daily in Pune. Enjoy flexible meal plans, a new menu every day, and free delivery in Undri, Pisoli, NIBM, and Kondhwa.">
+    <meta name="keywords"
+        content="tiffin service Pune, homecooked meals Pune, meal delivery Undri, healthy tiffin NIBM, lunch dinner Pune, mealzaar">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="MEALZAAR">
+    <link rel="canonical" href="https://www.mealzaar.com/">
+
+    <!-- Favicon Placeholder -->
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="MEALZAAR - Homecooked • Fresh • Delicious Tiffin Service in Pune">
+    <meta property="og:description"
+        content="Get fresh, healthy, homecooked meals delivered daily. Flexible plans, custom options, and free delivery in Pune's Undri, Pisoli, NIBM, and Kondhwa.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://www.mealzaar.com/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MEALZAAR - Fresh & Homecooked Tiffin Service in Pune">
+    <meta name="twitter:description"
+        content="Enjoy delicious, healthy homecooked meals with free delivery in Pune. New menu daily, flexible meal plans, and custom options available.">
+    <meta name="twitter:image" content="images/logo.png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home" class="logo-link">
+                    <img src="images/logo.png" alt="MEALZAAR Logo" class="logo">
+                    <span class="logo-text">MEALZAAR</span>
+                </a>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#order" class="nav-link">Order</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-logo-container">
+                    <img src="images/logo.png" alt="MEALZAAR Logo" class="hero-logo">
+                    <h1 class="hero-title">MEALZAAR</h1>
+                </div>
+                <p class="hero-subtitle">Homecooked • Fresh • Delicious</p>
+                <p class="hero-description">Experience the taste of home-cooked meals delivered fresh to your doorstep
+                    every day. No preservatives, no compromises - just pure, healthy goodness.</p>
+                <button class="btn btn-primary hero-cta" onclick="scrollToSection('order')">Order Now</button>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose MEALZAAR?</h2>
+                <p>We're committed to delivering the best home-style cooking experience</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>FLEXIBLE MEAL PLANS</h3>
+                    <p>Subscribe daily or for 15/30 meals per month. Pick breakfast, lunch, dinner – or all three.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>NEW MENU EVERY DAY</h3>
+                    <p>No repeats. Enjoy variety in every meal – veg & non-veg options available.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>FREE DELIVERY</h3>
+                    <p>Always free. No hidden charges. On time, every time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>CUSTOM MEALS AVAILABLE</h3>
+                    <p>Want extra paneer, skip onion, or less spice? Just ask. (nominal charge)</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>HEALTH-CONSCIOUS OPTIONS</h3>
+                    <p>Low oil, balanced portions & calorie info available in app.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏠</div>
+                    <h3>100% HOME COOKED & HYGIENIC</h3>
+                    <p>Cooked daily in a clean, monitored kitchen. No preservatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Weekly Menu</h2>
+                <p>Fresh variety every day of the week</p>
+            </div>
+
+            <div class="menu-tabs">
+                <button class="tab-btn active" onclick="showMenu('breakfast')">Weekly Breakfast</button>
+                <button class="tab-btn" onclick="showMenu('veg-lunch')">Veg Lunch</button>
+                <button class="tab-btn" onclick="showMenu('nonveg-lunch')">Non-Veg Lunch</button>
+                <button class="tab-btn" onclick="showMenu('veg-dinner')">Veg Dinner</button>
+                <button class="tab-btn" onclick="showMenu('nonveg-dinner')">Non-Veg Dinner</button>
+            </div>
+
+            <!-- Breakfast Menu -->
+            <div id="breakfast-menu" class="menu-content active">
+                <h3>Weekly Breakfast Menu</h3>
+                <p class="menu-description">Start your day with our fresh, energizing breakfast options</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-day">Monday</div>
+                        <div class="menu-dish">Poha</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Tuesday</div>
+                        <div class="menu-dish">Chapati, Sabzi</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Wednesday</div>
+                        <div class="menu-dish">Upma</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Thursday</div>
+                        <div class="menu-dish">Sandwich</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Friday</div>
+                        <div class="menu-dish">Chapati, Sabzi</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Saturday</div>
+                        <div class="menu-dish">Puri Sabzi</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Sunday</div>
+                        <div class="menu-dish">Idli Sambar</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Veg Lunch Menu -->
+            <div id="veg-lunch-menu" class="menu-content">
+                <h3>Weekly Vegetarian Lunch Menu</h3>
+                <p class="menu-description">Complete vegetarian meals with dal, sabzi, chawal, and accompaniments</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-day">Monday</div>
+                        <div class="menu-dish">Dal, Chawal, Sabzi, Achar & Papad</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Tuesday</div>
+                        <div class="menu-dish">Rajma Masala, Chawal & Salad</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Wednesday</div>
+                        <div class="menu-dish">Bhindi & Aalu Fry, Dal, Chawal</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Thursday</div>
+                        <div class="menu-dish">Kadhi Pakore, Chawal</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Friday</div>
+                        <div class="menu-dish">Matar Paneer, Rice</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Saturday</div>
+                        <div class="menu-dish">Dal, Chawal, Sabzi, Achar & Papad</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Sunday</div>
+                        <div class="menu-dish">Veg Pulao, Raita</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Non-Veg Lunch Menu -->
+            <div id="nonveg-lunch-menu" class="menu-content">
+                <h3>Weekly Non-Vegetarian Lunch Menu</h3>
+                <p class="menu-description">Protein-rich non-vegetarian meals with chicken, egg, and traditional
+                    accompaniments</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-day">Monday</div>
+                        <div class="menu-dish">Dal, Chawal, Sabzi, Achar & Papad</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Tuesday</div>
+                        <div class="menu-dish">Rajma Masala, Chawal & Salad</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Wednesday</div>
+                        <div class="menu-dish">Chicken Curry, Chawal</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Thursday</div>
+                        <div class="menu-dish">Kadhi Pakore, Chawal</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Friday</div>
+                        <div class="menu-dish">Chicken Fried Rice</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Saturday</div>
+                        <div class="menu-dish">Dal, Chawal, Egg Curry & Papad</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Sunday</div>
+                        <div class="menu-dish">Chicken Biryani, Raita</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Veg Dinner Menu -->
+            <div id="veg-dinner-menu" class="menu-content">
+                <h3>Weekly Vegetarian Dinner Menu</h3>
+                <p class="menu-description">Satisfying vegetarian dinners with rotis, vegetables, and dal</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-day">Monday</div>
+                        <div class="menu-dish">Aloo Matar, Roti</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Tuesday</div>
+                        <div class="menu-dish">Mix Veg, Roti</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Wednesday</div>
+                        <div class="menu-dish">Chole, Paratha</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Thursday</div>
+                        <div class="menu-dish">Dal Tadka, Roti</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Friday</div>
+                        <div class="menu-dish">Lauki Chana Dal, Roti</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Saturday</div>
+                        <div class="menu-dish">Butter Paneer Masala, Roti</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Sunday</div>
+                        <div class="menu-dish">Aalu Paratha</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NonVeg Dinner Menu -->
+            <div id="nonveg-dinner-menu" class="menu-content">
+                <h3>Weekly Non-Vegetarian Dinner Menu</h3>
+                <p class="menu-description">Wholesome non-vegetarian dinners with comforting chicken, egg, and freshly prepared sides.</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-day">Monday</div>
+                        <div class="menu-dish">Aloo Matar, Roti</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Tuesday</div>
+                        <div class="menu-dish">Egg Curry, Roti</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Wednesday</div>
+                        <div class="menu-dish">Chole, Paratha</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Thursday</div>
+                        <div class="menu-dish">Egg Bhurji, Roti</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Friday</div>
+                        <div class="menu-dish">Chicken Kofta, Roti</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Saturday</div>
+                        <div class="menu-dish">Butter Paneer Masala, Roti</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-day">Sunday</div>
+                        <div class="menu-dish">Aalu Paratha</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Plan</h2>
+                <p>Affordable pricing for fresh, home-cooked meals</p>
+            </div>
+
+            <!-- Monthly Plans -->
+            <h3 class="pricing-category">Monthly Subscription Plans</h3>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h4>STARTER</h4>
+                        <p>1 MEAL/DAY</p>
+                    </div>
+                    <div class="card-pricing">
+                        <div class="price-option">
+                            <span class="price-label">VEG</span>
+                            <span class="price">₹2,599</span>
+                        </div>
+                        <div class="price-option">
+                            <span class="price-label">NON-VEG</span>
+                            <span class="price">₹3,199</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="card-header">
+                        <h4>STANDARD</h4>
+                        <p>2 MEAL/DAY</p>
+                        <span class="popular-badge">Most Popular</span>
+                    </div>
+                    <div class="card-pricing">
+                        <div class="price-option">
+                            <span class="price-label">VEG</span>
+                            <span class="price">₹4,999</span>
+                        </div>
+                        <div class="price-option">
+                            <span class="price-label">NON-VEG</span>
+                            <span class="price">₹6,199</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h4>COMPLETE</h4>
+                        <p>3 MEAL/DAY</p>
+                    </div>
+                    <div class="card-pricing">
+                        <div class="price-option">
+                            <span class="price-label">VEG</span>
+                            <span class="price">₹7,499</span>
+                        </div>
+                        <div class="price-option">
+                            <span class="price-label">NON-VEG</span>
+                            <span class="price">₹8,999</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flexi Packages -->
+            <h3 class="pricing-category">Flexi Packages</h3>
+            <div class="flexi-grid">
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h4>15 Meals Pack</h4>
+                        <p>Monthly Meal Count</p>
+                    </div>
+                    <div class="card-pricing">
+                        <div class="price-option">
+                            <span class="price-label">VEG</span>
+                            <span class="price">₹1,699</span>
+                        </div>
+                        <div class="price-option">
+                            <span class="price-label">NON-VEG</span>
+                            <span class="price">₹2,199</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h4>30 Meals Pack</h4>
+                        <p>Monthly Meal Count</p>
+                    </div>
+                    <div class="card-pricing">
+                        <div class="price-option">
+                            <span class="price-label">VEG</span>
+                            <span class="price">₹2,999</span>
+                        </div>
+                        <div class="price-option">
+                            <span class="price-label">NON-VEG</span>
+                            <span class="price">₹3,599</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="order">
+        <div class="container">
+            <div class="section-header">
+                <h2>Place Your Order</h2>
+                <p>Fill in your details and start enjoying fresh home-cooked meals</p>
+            </div>
+            <div class="order-form-container">
+                <form id="orderForm" class="order-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customerName">Full Name *</label>
+                            <input type="text" id="customerName" name="customerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">Phone Number *</label>
+                            <input type="tel" id="customerPhone" name="customerPhone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerAddress">Complete Address *</label>
+                        <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mealPlan">Select Plan *</label>
+                            <select id="mealPlan" name="mealPlan" required>
+                                <option value="">Choose your plan</option>
+                                <option value="starter">STARTER (1 MEAL/DAY)</option>
+                                <option value="standard">STANDARD (2 MEAL/DAY)</option>
+                                <option value="complete">COMPLETE (3 MEAL/DAY)</option>
+                                <option value="flexi15">15 Meals Pack</option>
+                                <option value="flexi30">30 Meals Pack</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mealType">Meal Preference *</label>
+                            <select id="mealType" name="mealType" required>
+                                <option value="">Select preference</option>
+                                <option value="veg">Vegetarian</option>
+                                <option value="nonveg">Non-Vegetarian</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialInstructions">Special Instructions</label>
+                        <textarea id="specialInstructions" name="specialInstructions" rows="3"
+                            placeholder="Any dietary restrictions, preferences, or special requests..."></textarea>
+                    </div>
+                    <div id="priceDisplay" class="price-display"></div>
+                    <button type="submit" class="btn btn-primary submit-btn">Submit Order</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your meal journey? Contact us today!</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+919209316581">+91-9209316581</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📷</div>
+                    <h3>Instagram</h3>
+                    <p><a href="https://www.instagram.com/mealzaar" target="_blank">@mealzaar</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h3>Service Areas</h3>
+                    <p>Undri, Pisoli, NIBM, Kondhwa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MEALZAAR</h3>
+                    <p>Homecooked • Fresh • Delicious</p>
+                    <p>Your trusted partner for healthy, home-style meals delivered fresh every day.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Phone: +91-9209316581</li>
+                        <li>Instagram: @mealzaar</li>
+                        <li>Areas: Undri, Pisoli, NIBM, Kondhwa</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MEALZAAR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="success-icon">✅</div>
+                <h3>Order Submitted Successfully!</h3>
+                <p>Thank you for choosing MEALZAAR. We'll contact you shortly to confirm your order details.</p>
+                <button class="btn btn-primary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
